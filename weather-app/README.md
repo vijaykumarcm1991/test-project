@@ -93,16 +93,38 @@ weather-app/
 
 ## 🔧 Configuration
 
-### Environment Variables
+### Using Real Weather Data
 
-Create a `.env` file in the project root:
+The app supports two major weather API providers. Create a `.env` file in the project root:
+
+#### Option 1: OpenWeatherMap (Default)
+
+1. Get a free API key from [OpenWeatherMap](https://openweathermap.org/api)
+2. Create `.env` file:
 
 ```env
-# Optional: Real weather API key (OpenWeatherMap, WeatherAPI, etc.)
-WEATHER_API_KEY=your_api_key_here
-
-# Default is demo mode which generates realistic sample data
+WEATHER_API_KEY=your_openweathermap_api_key
+WEATHER_API_PROVIDER=openweathermap
 ```
+
+#### Option 2: WeatherAPI.com
+
+1. Get a free API key from [WeatherAPI](https://www.weatherapi.com/)
+2. Create `.env` file:
+
+```env
+WEATHER_API_KEY=your_weatherapi_key
+WEATHER_API_PROVIDER=weatherapi
+```
+
+#### Custom API Endpoints (Optional)
+
+```env
+OPENWEATHERMAP_URL=https://api.openweathermap.org/data/2.5
+WEATHERAPI_URL=https://api.weatherapi.com/v1
+```
+
+**Note**: If no API key is provided or the key is invalid, the app automatically falls back to demo mode with realistic generated data.
 
 ### Services
 
