@@ -23,8 +23,13 @@ services:
       dockerfile: Dockerfile
     ports:
       - "5000:5000"
+    env_file:
+      - .env
     environment:
       - WEATHER_API_KEY=${WEATHER_API_KEY:-demo}
+      - WEATHER_API_PROVIDER=${WEATHER_API_PROVIDER:-openweathermap}
+      - OPENWEATHERMAP_URL=${OPENWEATHERMAP_URL:-https://api.openweathermap.org/data/2.5}
+      - WEATHERAPI_URL=${WEATHERAPI_URL:-https://api.weatherapi.com/v1}
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - DATABASE_URL=postgresql://weatheruser:weatherpass@postgres:5432/weatherdb
